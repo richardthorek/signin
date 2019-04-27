@@ -154,17 +154,9 @@
               if (oReq.status === 200) {
               console.log(oReq.responseText);
               var countries = oReq.responseText;
-              /*An array containing all the previously seen people:*/
               
-              console.log(countries);
-            
-              var result = countries.substring(1, countries.length-1);
-              
-              console.log(result);
-              
-              var countries = result
-              
-              //var countries = countries.split(',');
+              /*An array containing all the previously seen people:*/              
+              var countries = countries.split(',');
               console.log(countries)
               
               /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
