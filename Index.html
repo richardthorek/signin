@@ -10,7 +10,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
+
 
   </head>
 
@@ -18,7 +18,7 @@
   <body>
 
     <div class="container">
-        
+
       <div class="jumbotron">
         <h1 class="display-3" style="text-align: center">Bungendore RFS Sign In</h1>
         <div class="jumbotron" style="text-align: center;">
@@ -38,7 +38,7 @@
           <button type="submit" form="form1" value="Other" name="Event" class="btn btn-info btn-lg" style="text-align: center;" id="submitOther">Other</button>
           </form>
 
-         
+
 <script>
 
             function autocomplete(inp, arr) {
@@ -142,13 +142,12 @@
 
 function reqListener () {
   console.log(this.responseText);
-  var countries = this.responseText;
 }
 
 var oReq = new XMLHttpRequest();
 oReq.addEventListener("load", reqListener);
 oReq.open("GET", "https://rfssigninsheet.azurewebsites.net/valuesarray.txt");
-oReq.send();   
+oReq.send();
 
 console.log(oReq.responseText)
 var countries = oReq.responseText
@@ -160,17 +159,17 @@ var countries = oReq.responseText
             autocomplete(document.getElementById("myInput"), countries);
 
             </script>
-            
-          
-          
+
+
+
       </div>
 
       <footer class="footer">
-        
+
       </footer>
 
     </div> <!-- /container -->
-  
+
 
 </body>
 </html>
