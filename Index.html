@@ -47,7 +47,7 @@ function reqListener () {
 
 var oReq = new XMLHttpRequest();
 oReq.addEventListener("load", reqListener);
-oReq.open("GET", "http://www.example.org/example.txt");
+oReq.open("GET", "https://rfssigninsheet.azurewebsites.net/valuesarray.txt");
 oReq.send();
 
 
@@ -167,7 +167,8 @@ oReq.send();
 
 
             /*An array containing all the previously seen people:*/
-            var countries = xhr;
+            var countries = responseText.split(',');
+            //var countries = responseText;
             /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
             autocomplete(document.getElementById("myInput"), countries);
             </script>
