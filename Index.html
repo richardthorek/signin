@@ -158,8 +158,6 @@ console.log(1)
 function reqListener () {
   console.log(this.responseText);
   var countries = this.responseText;
-              /*An array containing all the previously seen people:*/
-              //var countries = responseText.split(',');
               //console.log(responseText)
               //console.log(countries)
 }
@@ -171,8 +169,9 @@ oReq.open("GET", "https://rfssigninsheet.azurewebsites.net/valuesarray.txt");
 oReq.send();
 
 
-            //var countries = responseText;
-            
+            /*An array containing all the previously seen people:*/
+            var countries = responseText.split(',');
+
             /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
             autocomplete(document.getElementById("myInput"), countries);
             
