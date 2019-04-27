@@ -40,7 +40,9 @@
 var xhr = new XMLHttpRequest();
 
 xhr.open('GET', 'https://rfssigninsheet.azurewebsites.net/valuesarray.txt', false);
+xhr.responseType = 'text';
   xhr.send();
+  
   try{
   if (xhr.status != 200) {
     alert(`Error ${xhr.status}: ${xhr.statusText}`);
