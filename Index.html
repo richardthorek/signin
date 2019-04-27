@@ -151,6 +151,7 @@ oReq.open("GET", "https://rfssigninsheet.azurewebsites.net/valuesarray.txt");
 oReq.send();   
 
 console.log(oReq.responseText)
+var countries = oReq.responseText
 
             /*An array containing all the previously seen people:*/
             var countries = countries.split(',');
