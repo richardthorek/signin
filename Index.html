@@ -45,7 +45,7 @@ xhr.open('GET', 'https://rfssigninsheet.azurewebsites.net/valuesarray.txt', fals
   if (xhr.status != 200) {
     alert(`Error ${xhr.status}: ${xhr.statusText}`);
    } else {
-     alert(xhr.response);
+     alert(xhr.status&&xhr.response);
    }
  } catch(err) { // instead of onerror
    alert("Request failed");
