@@ -42,13 +42,13 @@
 <script>
 
 function reqListener () {
-  console.log(this.responseText);
+ // console.log(this.responseText);
   var responseText = responseText;
 }
 
 var oReq = new XMLHttpRequest();
 oReq.addEventListener("load", reqListener);
-oReq.open("GET", "https://rfssigninsheet.azurewebsites.net/valuesarray.txt",true);
+oReq.open("GET", "https://rfssigninsheet.azurewebsites.net/valuesarray.txt",false);
 oReq.send();
 
 
