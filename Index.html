@@ -142,20 +142,30 @@
                   });
               }
               
-              
-              
-              function reqListener() {
-                  console.log(this.responseText);
-                  return this.responseText;
-              }
+              //function reqListener() {
+              //    console.log(this.responseText);
+              //}
               
               var oReq = new XMLHttpRequest();
-              oReq.addEventListener("load", reqListener);
+              //oReq.addEventListener("load", reqListener);
               oReq.open("GET", "https://rfssigninsheet.azurewebsites.net/valuesarray.txt");
+              oReq.onload = function (e) {
+              if (oReq.readyState === 4) {
+              if (oReq.status === 200) {
+              console.log(oReq.responseText);
+              } else {
+              console.error(oReq.statusText);
+              }
+              }
+              };
+              oReq.onerror = function (e) {
+              console.error(oReq.statusText);
+              };
               oReq.send();
               
               /*An array containing all the previously seen people:*/
-              var countries = reqListener.split(',');
+              console.log(countries)
+              var countries = countries.split(',');
               
               /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
               autocomplete(document.getElementById("myInput"), countries);
