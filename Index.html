@@ -28,6 +28,9 @@
           <input id="myInput" type="text" placeholder="Name" name="name" style="width: 60%"><br>
           <p></p>
           <p></p>
+          <p>What are you here for?</p>
+          <p></p>
+          <p></p>
           <button type="submit" form="form1" value="Incident" name="Event" class="btn btn-danger btn-warning btn-lg" style="text-align: center;" id="submitIncident">Incident</button>
           <button type="submit" form="form1" value="Training" name="Event" class="btn btn-warning btn-lg" style="text-align: center;" id="submitTraining">Training</button>
           <button type="submit" form="form1" value="Maintenance" name="Event" class="btn btn-success btn-lg" style="text-align: center;" id="submitMaintenance">Maintenance</button>
@@ -37,22 +40,32 @@
 
          
 <script>
-var xhr = new XMLHttpRequest();
 
-xhr.open('GET', 'https://rfssigninsheet.azurewebsites.net/valuesarray.txt', false);
-  xhr.send();
-  
-  try{
-  if (xhr.status != 200) {
-    alert(`Error ${xhr.status}: ${xhr.statusText}`);
-   } else {
-     alert(xhr.status&&xhr.response);
-   }
- } catch(err) { // instead of onerror
-   alert("Request failed");
-  };
+function reqListener () {
+  console.log(this.responseText);
+}
 
-  console.log(xhr)
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "http://www.example.org/example.txt");
+oReq.send();
+
+
+
+
+//var xhr = new XMLHttpRequest();
+//xhr.open('GET', 'https://rfssigninsheet.azurewebsites.net/valuesarray.txt', false);
+ // xhr.send();
+ // try{
+ // if (xhr.status != 200) {
+ //   alert(`Error ${xhr.status}: ${xhr.statusText}`);
+ //  } else {
+ //    alert(xhr.status&&xhr.response);
+ //  }
+ //} catch(err) { // instead of onerror
+  // alert("Request failed");
+  //};
+  //console.log(xhr)
 
             function autocomplete(inp, arr) {
               /*the autocomplete function takes two arguments,
