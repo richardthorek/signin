@@ -153,27 +153,26 @@
               if (oReq.readyState === 4) {
               if (oReq.status === 200) {
               console.log(oReq.responseText);
-              } else {
+              var countries = oReq.responseText;
+              /*An array containing all the previously seen people:*/
+              console.log(countries);
+              var countries = countries.split(',');
+              /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+              autocomplete(document.getElementById("myInput"), countries);
+              } 
+              else {
               console.error(oReq.statusText);
               }
-              }
-              };
+                }
+                  };
               oReq.onerror = function (e) {
               console.error(oReq.statusText);
               };
               oReq.send();
-              
-              /*An array containing all the previously seen people:*/
-              console.log(countries)
-              var countries = countries.split(',');
-              
-              /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-              autocomplete(document.getElementById("myInput"), countries);
+
               </script>
 
-
-
-      </div>
+</div>
 
       <footer class="footer">
 
