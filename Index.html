@@ -13,22 +13,7 @@
   
 
   </head>
-<script>
-var xhr = new XMLHttpRequest();
 
-xhr.open('GET', 'https://rfssigninsheet.azurewebsites.net/valuesarray.txt', false);
-try {
-  xhr.send();
-//  if (xhr.status != 200) {
-//    alert(`Error ${xhr.status}: ${xhr.statusText}`);
-//  } else {
-//    alert(xhr.response);
-//  }
-//} catch(err) { // instead of onerror
-//  alert("Request failed");
-};
-
-</script>
 
   <body>
 
@@ -50,7 +35,21 @@ try {
           <button type="submit" form="form1" value="Other" name="Event" class="btn btn-info btn-lg" style="text-align: center;" id="submitOther">Other</button>
           </form>
 
-          <script> 
+         
+<script>
+var xhr = new XMLHttpRequest();
+
+xhr.open('GET', 'https://rfssigninsheet.azurewebsites.net/valuesarray.txt', false);
+  xhr.send();
+//  if (xhr.status != 200) {
+//    alert(`Error ${xhr.status}: ${xhr.statusText}`);
+//  } else {
+//    alert(xhr.response);
+//  }
+//} catch(err) { // instead of onerror
+//  alert("Request failed");
+
+
 
 
         </script>
