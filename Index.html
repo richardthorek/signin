@@ -27,11 +27,11 @@
           <input id="myInput" type="text" placeholder="Name" name="name" style="width: 60%"><br>
           <p></p>
           <p></p>
-          <button type="submit" form="form1" value="Incident" name="Incident" class="btn btn-danger btn-warning btn-lg" style="text-align: center;" id="submitIncident">Incident</button>
-          <button type="submit" form="form1" value="Training" name="Training" class="btn btn-warning btn-lg" style="text-align: center;" id="submitTraining">Training</button>
-          <button type="submit" form="form1" value="Maintenance" name="Maintenance" class="btn btn-success btn-lg" style="text-align: center;" id="submitMaintenance">Maintenance</button>
-          <button type="submit" form="form1" value="Meeting" name="Meeting" class="btn btn-info btn-lg" style="text-align: center;" id="submitMeeting">Meeting</button>
-          <button type="submit" form="form1" value="Other" name="Other" class="btn btn-info btn-lg" style="text-align: center;" id="submitOther">Other</button>
+          <button type="submit" form="form1" value="Incident" name="Event" class="btn btn-danger btn-warning btn-lg" style="text-align: center;" id="submitIncident">Incident</button>
+          <button type="submit" form="form1" value="Training" name="Event" class="btn btn-warning btn-lg" style="text-align: center;" id="submitTraining">Training</button>
+          <button type="submit" form="form1" value="Maintenance" name="Event" class="btn btn-success btn-lg" style="text-align: center;" id="submitMaintenance">Maintenance</button>
+          <button type="submit" form="form1" value="Meeting" name="Event" class="btn btn-info btn-lg" style="text-align: center;" id="submitMeeting">Meeting</button>
+          <button type="submit" form="form1" value="Other" name="Event" class="btn btn-info btn-lg" style="text-align: center;" id="submitOther">Other</button>
           </form>
 
           <script>
@@ -133,7 +133,7 @@
             }
             
             /*An array containing all the previously seen people:*/
-            var countries = 'https://rfssmsstorage.blob.core.windows.net/$web/ValuesArray.txt'
+            var countries = 'https://rfssmsstorage.blob.core.windows.net/$web/ValuesArray.txt?st=2019-04-27T11%3A54%3A19Z&se=2099-04-28T11%3A54%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=iUxeOZXKpXTxnH7O9JL1dx%2F0rtJ822nzNCjIcXAQchU%3D'
             /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
             autocomplete(document.getElementById("myInput"), countries);
             </script>
