@@ -138,7 +138,7 @@
 let response = fetch('https://rfssigninsheet.azurewebsites.net/valuesarray.txt');
 if (response.ok) { // if HTTP-status is 200-299
   // get the response body (see below)
-  let NameHistory = response.text();
+  var NameHistory = response.text();
   console.log(NameHistory)
 } else {
   alert("HTTP-Error: " + response.status);
