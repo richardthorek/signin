@@ -41,21 +41,6 @@
          
 <script>
 
-console.log(1)
-//var xhr = new XMLHttpRequest();
-//xhr.open('GET', 'https://rfssigninsheet.azurewebsites.net/valuesarray.txt', false);
- // xhr.send();
- // try{
- // if (xhr.status != 200) {
- //   alert(`Error ${xhr.status}: ${xhr.statusText}`);
- //  } else {
- //    alert(xhr.status&&xhr.response);
- //  }
- //} catch(err) { // instead of onerror
-  // alert("Request failed");
-  //};
-  //console.log(xhr)
-
             function autocomplete(inp, arr) {
               /*the autocomplete function takes two arguments,
               the text field element and an array of possible autocompleted values:*/
@@ -153,28 +138,20 @@ console.log(1)
               });
             }
 
-            console.log(2)
-
 function reqListener () {
   console.log(this.responseText);
   var countries = this.responseText;
-              //console.log(responseText)
-              console.log(countries)
 }
 
-console.log(3)
 var oReq = new XMLHttpRequest();
 oReq.addEventListener("load", reqListener);
 oReq.open("GET", "https://rfssigninsheet.azurewebsites.net/valuesarray.txt");
 oReq.send();
 
+var countries = reqListener()            
 
-
-
-            /*An array containing all the previously seen people:*/
-            console.log(reqListener)
-            var countries = reqListener.split(',');
-            console.log(reqListener)
+/*An array containing all the previously seen people:*/
+            var countries = countries.split(',');
 
             /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
             autocomplete(document.getElementById("myInput"), countries);
