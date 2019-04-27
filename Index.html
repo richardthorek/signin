@@ -156,8 +156,8 @@ console.log(1)
             console.log(2)
 
 function reqListener () {
- // console.log(this.responseText);
-  var responseText = responseText;
+  console.log(this.responseText);
+  var responseText = this.responseText;
               /*An array containing all the previously seen people:*/
               var countries = responseText.split(',');
               console.log(responseText)
