@@ -6,10 +6,11 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>RFS SIGN IN</title>
+    <title>Bungendore RFS Sign In</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
 
   </head>
 
@@ -18,12 +19,12 @@
     <div class="container">
         
       <div class="jumbotron">
-        <h1 class="display-3" style="text-align: center">Sign In</h1>
+        <h1 class="display-3" style="text-align: center">Bungendore RFS Sign In</h1>
         <div class="jumbotron" style="text-align: center;">
           <p></p>
           <p></p>
-          <form target="_blank" action='https://prod-06.australiaeast.logic.azure.com:443/workflows/2c9dd1f47fc649e89ee68b74dc545035/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=qYCMtI19YRMmOgZiYi8Tu8sOZDlzrZTvw61dc3dYsM8' method="POST" id="form1">
-          <input type="text" placeholder="Name" name="name"><br>
+          <form action='https://rfssms.azurewebsites.net/signin/{id}' method="POST" id="form1">
+          <input type="text" placeholder="Name" name="name" style="width: 60%"><br>
           <p></p>
           <p></p>
           <button type="submit" form="form1" value="Incident" name="Incident" class="btn btn-danger btn-warning btn-lg" style="text-align: center;" id="submitIncident">Incident</button>
