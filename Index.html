@@ -10,9 +10,12 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+  
 
   </head>
+<script>
+
+</script>
 
   <body>
 
@@ -131,9 +134,18 @@
                   closeAllLists(e.target);
               });
             }
-            
+
+let response = fetch('https://rfssigninsheet.azurewebsites.net/valuesarray.txt');
+if (response.ok) { // if HTTP-status is 200-299
+  // get the response body (see below)
+  let NameHistory = response.text();
+  console.log(NameHistory)
+} else {
+  alert("HTTP-Error: " + response.status);
+}
+
             /*An array containing all the previously seen people:*/
-            var countries = 'http://rfssigninsheet.azurewebsites.net/valuesarray.txt'
+            var countries = NameHistory;
             /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
             autocomplete(document.getElementById("myInput"), countries);
             </script>
