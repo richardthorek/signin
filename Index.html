@@ -138,7 +138,7 @@
               });
             }
 
-var countries = reqListener();  
+
 
 function reqListener () {
   console.log(this.responseText);
@@ -148,17 +148,15 @@ function reqListener () {
 var oReq = new XMLHttpRequest();
 oReq.addEventListener("load", reqListener);
 oReq.open("GET", "https://rfssigninsheet.azurewebsites.net/valuesarray.txt");
-oReq.send();
+oReq.send();   
 
-var countries = reqListener();          
+console.log(oReq.responseText)
 
-/*An array containing all the previously seen people:*/
+            /*An array containing all the previously seen people:*/
             var countries = countries.split(',');
 
             /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
             autocomplete(document.getElementById("myInput"), countries);
-            
-            console.log(4)
 
             </script>
             
