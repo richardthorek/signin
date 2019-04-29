@@ -212,10 +212,10 @@ a{
                       closeAllLists(e.target);
                   });
               }
-
+              var namesurl = "https://rfssmsstorage.blob.core.windows.net/autofillnames/ValuesArray.txt?sp=r&st=2019-04-29T21:39:59Z&se=2099-04-30T05:39:59Z&spr=https&sv=2018-03-28&sig=5oa4VmKxsB8NwojbQcHplylNDL19YKVqNyoNmtIShqw%3D&sr=b" 
               var oReq = new XMLHttpRequest();
               //oReq.addEventListener("load", reqListener);
-              oReq.open("GET","ValuesArray.txt");
+              oReq.open("GET",namesurl);
               oReq.onload = function (e) {
               if (oReq.readyState === 4) {
               if (oReq.status === 200) {
