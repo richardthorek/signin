@@ -94,7 +94,6 @@ a{
     </style>
 
   <body>
-
     <div class="container">
       <div class="jumbotron">
         <h2 class="display-4" style="text-align: center">Bungendore RFS Sign In</h2>
@@ -110,7 +109,6 @@ a{
           <button type="submit" form="form1" value="Meeting" name="Event" class="btn btn-info btn-lg" style="text-align: center;" id="submitMeeting">Meeting</button>
           <button type="submit" form="form1" value="Other" name="Event" class="btn btn-info btn-lg" style="text-align: center;" id="submitOther">Other</button>
           </form>
-
 
           <script>
               function autocomplete(inp, arr) {
@@ -214,11 +212,7 @@ a{
                       closeAllLists(e.target);
                   });
               }
-              
-              //function reqListener() {
-              //    console.log(this.responseText);
-              //}
-              
+
               var oReq = new XMLHttpRequest();
               //oReq.addEventListener("load", reqListener);
               oReq.open("GET","ValuesArray.txt");
@@ -244,7 +238,6 @@ a{
               console.error(oReq.statusText);
               };
               oReq.send();
-
               </script>
 
 </div>
