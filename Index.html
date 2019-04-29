@@ -4,7 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="icons\notebook.png">
+
+    
 
     <title>Bungendore RFS Sign In</title>
 
@@ -211,7 +213,7 @@
               
               var oReq = new XMLHttpRequest();
               //oReq.addEventListener("load", reqListener);
-              oReq.open("GET", "https://rfssigninsheet.azurewebsites.net/valuesarray.txt");
+              oReq.open("GET","ValuesArray.txt");
               oReq.onload = function (e) {
               if (oReq.readyState === 4) {
               if (oReq.status === 200) {
@@ -240,7 +242,7 @@
 </div>
 
       <footer class="footer">
-
+        <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
       </footer>
 
     </div> <!-- /container -->
