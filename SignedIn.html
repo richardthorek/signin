@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,119 +11,114 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
+</head>
 
-  <style>
+<style>
+    table {
+        width: 100%;
+    }
+    
+    th,
+    td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    footer {
+        font-size: 10;
+        color: #D9D9D9;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center
+    }
+    
+    a {
+        color: #b0b0b0;
+    }
+    
+    p {
+        padding: 35px;
+    }
+</style>
 
-table {
-  width: 100%;
-}
-
-th, td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-footer {
-  font-size: 10;
-  color: #D9D9D9;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center
-}
-
-a{
-  color: #b0b0b0;
-}
-
-p {
-  padding: 35px;
-}
-
-  </style>
-
-
-  <body>
+<body>
     <div class="container">
-      <div class="jumbotron" style="text-align: center;">
-      <h3>Signed In Members</h3>
-      <a href="Index.html" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Back to Sign In</a>
-      <p class="ResultsTable" id="ResultsTable" style="text-align:center">Loading....</p>
-      <form action='https://rfssms.azurewebsites.net/signin/{id}' method="POST" id="form2" autocomplete="off">
-      <button type="submit" form="form2" value="SignOutAll" name="Event" class="btn btn-info btn-lg" style="text-align: center;" id="submitSignOutAll">Sign Out All</button>
-      
-    </form>
-    </div>
+        <div class="jumbotron" style="text-align: center;">
+            <h3>Signed In Members</h3>
+            <a href="Index.html" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Back to Sign In</a>
+            <p class="ResultsTable" id="ResultsTable" style="text-align:center">Loading....</p>
+            <form action='https://rfssms.azurewebsites.net/signin/{id}' method="POST" id="form2" autocomplete="off">
+                <button type="submit" form="form2" value="SignOutAll" name="Event" class="btn btn-info btn-lg" style="text-align: center;" id="submitSignOutAll">Sign Out All</button>
 
+            </form>
+        </div>
 
-<script>
-              var htmlurl = "https://prod-14.australiaeast.logic.azure.com:443/workflows/8e5092bdcc164560a9b67ceb238561ae/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=qGcp0vBb7ucHK54iZrx5k4_AcRLFgq2vw3OgMJySdwI"
-              var tReq = new XMLHttpRequest();
-              tReq.open("POST",htmlurl);
-              tReq.onload = function (e) {
-              if (tReq.readyState === 4) {
-              if (tReq.status === 200) {
-              console.log(tReq.responseText);
-              
-              //document.write(tReq.responseText)
-              document.getElementById("ResultsTable").innerHTML = tReq.responseText;
-              sortTable();
+        <script>
+            var htmlurl = "https://prod-14.australiaeast.logic.azure.com:443/workflows/8e5092bdcc164560a9b67ceb238561ae/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=qGcp0vBb7ucHK54iZrx5k4_AcRLFgq2vw3OgMJySdwI"
+            var tReq = new XMLHttpRequest();
+            tReq.open("POST", htmlurl);
+            tReq.onload = function(e) {
+                if (tReq.readyState === 4) {
+                    if (tReq.status === 200) {
+                        console.log(tReq.responseText);
 
-              } 
-              else {
-              console.error(tReq.statusText);
-              }
+                        //document.write(tReq.responseText)
+                        document.getElementById("ResultsTable").innerHTML = tReq.responseText;
+                        sortTable();
+
+                    } else {
+                        console.error(tReq.statusText);
+                    }
                 }
-                  };
-              tReq.onerror = function (e) {
-              console.error(tReq.statusText);
-              };
-              tReq.send();
+            };
+            tReq.onerror = function(e) {
+                console.error(tReq.statusText);
+            };
+            tReq.send();
 
-              
+            function sortTable() {
+                var table, rows, switching, i, x, y, shouldSwitch;
+                table = document.getElementById("MyTable");
+                switching = true;
+                /*Make a loop that will continue until
+                no switching has been done:*/
+                while (switching) {
+                    //start by saying: no switching is done:
+                    switching = false;
+                    rows = table.rows;
+                    /*Loop through all table rows (except the
+                    first, which contains table headers):*/
+                    for (i = 1; i < (rows.length - 1); i++) {
+                        //start by saying there should be no switching:
+                        shouldSwitch = false;
+                        /*Get the two elements you want to compare,
+                        one from current row and one from the next:*/
+                        x = rows[i].getElementsByTagName("td")[2];
+                        y = rows[i + 1].getElementsByTagName("td")[2];
+                        //check if the two rows should switch place:
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            //if so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                    if (shouldSwitch) {
+                        /*If a switch has been marked, make the switch
+                        and mark that a switch has been done:*/
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                    }
+                }
+            }
+        </script>
 
-
-function sortTable() {
-  var table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("MyTable");
-  switching = true;
-  /*Make a loop that will continue until
-  no switching has been done:*/
-  while (switching) {
-    //start by saying: no switching is done:
-    switching = false;
-    rows = table.rows;
-    /*Loop through all table rows (except the
-    first, which contains table headers):*/
-    for (i = 1; i < (rows.length - 1); i++) {
-      //start by saying there should be no switching:
-      shouldSwitch = false;
-      /*Get the two elements you want to compare,
-      one from current row and one from the next:*/
-      x = rows[i].getElementsByTagName("td")[2];
-      y = rows[i + 1].getElementsByTagName("td")[2];
-      //check if the two rows should switch place:
-      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-        //if so, mark as a switch and break the loop:
-        shouldSwitch = true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-      /*If a switch has been marked, make the switch
-      and mark that a switch has been done:*/
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-    }
-  }
-}
-
-</script>
-
-    <footer class="footer">
-     <p><div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div></p>
-    </footer>
+        <footer class="footer">
+            <p>
+                <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+            </p>
+        </footer>
 
 </body>
+
 </html>
