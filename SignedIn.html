@@ -30,6 +30,11 @@ footer {
   text-decoration: none;
   text-transform: uppercase;
 }
+
+a{
+  color: #b0b0b0;
+}
+
   </style>
 
 
@@ -38,6 +43,11 @@ footer {
       <div class="jumbotron" style="text-align: center;">
       <h3>Signed In Members</h3>
       <p class="ResultsTable" id="ResultsTable" style="text-align:center">Loading....</p>
+      </div>
+
+      <form action='https://rfssms.azurewebsites.net/signin/{id}' method="POST" id="form2" autocomplete="off">
+
+      <button type="submit" form="form2" value="SignOutAll" name="Event" class="btn btn-info btn-lg" style="text-align: center;" id="submitSignOutAll">Sign Out All</button>
       </div>
 
 
