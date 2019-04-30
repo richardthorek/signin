@@ -12,13 +12,35 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
 
+  <style>
+
+table {
+  width: 100%;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+footer {
+  font-size: 10;
+  color: #D9D9D9;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+  </style>
+
 
   <body>
     <div class="container">
       <div class="jumbotron" style="text-align: center;">
-      
-    <p>Signed In Members</p> 
-    
+      <h3>Signed In Members</h3>
+      <p class="ResultsTable" id="ResultsTable" style="text-align:center">Loading....</p>
+      </div>
+
+
 <script>
               var htmlurl = "https://prod-14.australiaeast.logic.azure.com:443/workflows/8e5092bdcc164560a9b67ceb238561ae/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=qGcp0vBb7ucHK54iZrx5k4_AcRLFgq2vw3OgMJySdwI"
               var tReq = new XMLHttpRequest();
@@ -27,6 +49,10 @@
               if (tReq.readyState === 4) {
               if (tReq.status === 200) {
               console.log(tReq.responseText);
+              
+              //document.write(tReq.responseText)
+              document.getElementById("ResultsTable").innerHTML = tReq.responseText;
+
               } 
               else {
               console.error(tReq.statusText);
@@ -38,8 +64,6 @@
               };
               tReq.send();
 </script>
-      
-    </div> <!-- /container -->
 
     <footer class="footer">
      <p><div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div></p>
