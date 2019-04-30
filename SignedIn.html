@@ -71,6 +71,7 @@ p {
               
               //document.write(tReq.responseText)
               document.getElementById("ResultsTable").innerHTML = tReq.responseText;
+              sorttable();
 
               } 
               else {
@@ -82,6 +83,8 @@ p {
               console.error(tReq.statusText);
               };
               tReq.send();
+
+              
 
 
 function sortTable() {
