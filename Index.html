@@ -212,7 +212,8 @@ a{
                       closeAllLists(e.target);
                   });
               }
-              var namesurl = "https://rfssmsstorage.blob.core.windows.net/autofillnames/ValuesArray.txt?sp=r&st=2019-04-29T21:39:59Z&se=2099-04-30T05:39:59Z&spr=https&sv=2018-03-28&sig=5oa4VmKxsB8NwojbQcHplylNDL19YKVqNyoNmtIShqw%3D&sr=b" 
+              //var namesurl = "https://rfssmsstorage.blob.core.windows.net/autofillnames/ValuesArray.txt?sp=r&st=2019-04-29T21:39:59Z&se=2099-04-30T05:39:59Z&spr=https&sv=2018-03-28&sig=5oa4VmKxsB8NwojbQcHplylNDL19YKVqNyoNmtIShqw%3D&sr=b" 
+              var namesurl = "https://prod-06.australiaeast.logic.azure.com:443/workflows/5443113056804179bf59233c82437562/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=X879Y1erxcN1xnKrFjU6Vc3SUXiZBKweIyOfcR9Ov-U"
               var oReq = new XMLHttpRequest();
               //oReq.addEventListener("load", reqListener);
               oReq.open("GET",namesurl);
