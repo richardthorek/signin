@@ -264,12 +264,16 @@
                             if (oReq.status === 200) {
                                 console.log(oReq.responseText);
                                 var countries = oReq.responseText;
-
+                                console.log(countries)
                                 /*An array containing all the previously seen people:*/
+                                var txtreplace = countries.concat(':',brigadename)
+                                console.log(txtreplace)
+                                var countries = countries.replace(txtreplace,'')
+                                console.log(countries)
                                 var countries = countries.split(',');
                                 console.log(countries)
 
-                                /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+                                /*initiate the autocomplete function on the "myInput" element, and pass along the names as possible autocomplete values:*/
                                 autocomplete(document.getElementById("myInput"), countries);
                             } else {
                                 console.error(oReq.statusText);
