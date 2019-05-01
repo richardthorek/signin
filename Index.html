@@ -262,15 +262,17 @@
                     oReq.onload = function(e) {
                         if (oReq.readyState === 4) {
                             if (oReq.status === 200) {
-                                console.log(oReq.responseText);
+                                //console.log(oReq.responseText);
                                 var countries = oReq.responseText;
-                                console.log(countries)
+                    
+                                
                                 /*An array containing all the previously seen people:*/
                                 var txtreplace = countries.concat(':',brigadename)
+                                console.log('text replace')
                                 console.log(txtreplace)
                                 var countries = countries.replace(txtreplace,'')
-                                console.log(countries)
                                 var countries = countries.split(',');
+                                console.log('People List')
                                 console.log(countries)
 
                                 /*initiate the autocomplete function on the "myInput" element, and pass along the names as possible autocomplete values:*/
