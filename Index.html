@@ -136,11 +136,18 @@ function getUrlVars() {
 }
 
                     var brigadename = getUrlVars()["brigade"];
+                    console.log(brigadename)
+
+                    if (typeof brigadename == 'undefined'){
+                        window.location.replace("Selector.html");
+                    }
+
                     document.getElementById("brigadelabel").innerHTML = brigadename;
                     var signedinurl="SignedIn.html?brigade="+brigadename
                     console.log(signedinurl)
                     document.getElementById('signedinurl').setAttribute('href',signedinurl);
-
+                    
+                    
                     function autocomplete(inp, arr) {
                         /*the autocomplete function takes two arguments,
                         the text field element and an array of possible autocompleted values:*/
