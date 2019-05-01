@@ -97,7 +97,10 @@
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h2 class="display-4" style="text-align: center">Bungendore RFS Sign In</h2>
+            
+            <h2 class="brigadelabel" id="brigadelabel" style="text-align:center">Loading....</h2>
+            <h2 class="display-4" style="text-align: center">Sign In</h2>
+            
             <div class="jumbotron" style="text-align: center;">
                 <form action='https://rfssms.azurewebsites.net/signin/{id}' method="POST" id="form1" autocomplete="off">
                     <div class="autocomplete">
@@ -117,12 +120,27 @@
                     </div>
                     <div>
                         <p></p>
-                        <a href="SignedIn.html" class="btn btn-block btn-default"><span class="glyphicon glyphicon-user"></span> See Signed In</a>
+                        <a id="signedinurl" href="SignedIn.html" class="btn btn-block btn-default"><span class="glyphicon glyphicon-user"></span>See Signed In</a>
                     </div>
 
                 </form>
 
                 <script>
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+                    var brigadename = getUrlVars()["brigade"];
+                    document.getElementById("brigadelabel").innerHTML = brigadename;
+                    var signedinurl="SignedIn.html?brigade="+brigadename
+                    console.log(signedinurl)
+                    document.getElementById('signedinurl').setAttribute('href',signedinurl);
+
                     function autocomplete(inp, arr) {
                         /*the autocomplete function takes two arguments,
                         the text field element and an array of possible autocompleted values:*/
