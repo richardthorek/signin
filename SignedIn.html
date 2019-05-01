@@ -52,6 +52,7 @@
             <a id="signedinurl" href="Index.html" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-arrow-left"></span>Back to Sign In</a>
             <p class="ResultsTable" id="ResultsTable" style="text-align:center">Loading....</p>
             <form action='https://rfssms.azurewebsites.net/signin/{id}' method="POST" id="form2" autocomplete="off">
+                <input id="brigadenameHidden" type="hidden" value="brigadename" name ="brigade">
                 <button type="submit" form="form2" value="SignOutAll" name="Event" class="btn btn-info btn-lg" style="text-align: center;" id="submitSignOutAll">Sign Out All</button>
 
             </form>
@@ -73,6 +74,7 @@
                     console.log(signedinurl)
                     document.getElementById('signedinurl').setAttribute('href',signedinurl);
                     document.getElementById('submitSignOutAll').setAttribute('href',signedinurl);
+                    document.getElementById('brigadenameHidden').setAttribute('value',brigadename);z
             
             
             
