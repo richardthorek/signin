@@ -257,19 +257,15 @@
                     var oReq = new XMLHttpRequest();
                     //oReq.addEventListener("load", reqListener);
                     oReq.open("POST", namesurl);
+                    oReq.setRequestHeader('brigade',brigadename)
                     oReq.onload = function(e) {
                         if (oReq.readyState === 4) {
                             if (oReq.status === 200) {
                                 var countries = oReq.responseText;
-                    
-                                
-                                /*An array containing all the previously seen people:*/
 
-                                var countries = countries.replace(brigadename,'')
-                                var countries = countries.replace(':','')
+                                /*An array containing all the previously seen people:*/
                                 var countries = countries.split(',');
-                                console.log('People List')
-                                console.log(countries)
+
 
                                 /*initiate the autocomplete function on the "myInput" element, and pass along the names as possible autocomplete values:*/
                                 autocomplete(document.getElementById("myInput"), countries);
@@ -281,7 +277,7 @@
                     oReq.onerror = function(e) {
                         console.error(oReq.statusText);
                     };
-                    oReq.send();
+                    oReq.send(brigadename);
                 </script>
 
             </div>
