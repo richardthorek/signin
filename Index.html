@@ -104,7 +104,6 @@
 }
 
                     var brigadename = getUrlVars()["brigade"];
-                    console.log(brigadename)
 </script>
 
 <body>
@@ -147,7 +146,6 @@
 
                     document.getElementById("brigadelabel").innerHTML = brigadename;
                     var signedinurl="SignedIn.html?brigade="+brigadename
-                    console.log(signedinurl)
                     document.getElementById('signedinurl').setAttribute('href',signedinurl);
                     document.getElementById('brigadenameHidden').setAttribute('value',brigadename);
                     document.getElementById('submitSignOutAll').setAttribute('href',signedinurl);
@@ -262,15 +260,13 @@
                     oReq.onload = function(e) {
                         if (oReq.readyState === 4) {
                             if (oReq.status === 200) {
-                                //console.log(oReq.responseText);
                                 var countries = oReq.responseText;
                     
                                 
                                 /*An array containing all the previously seen people:*/
-                                var txtreplace = countries.concat(':',brigadename)
-                                console.log('text replace')
-                                console.log(txtreplace)
-                                var countries = countries.replace(txtreplace,'')
+
+                                var countries = countries.replace(brigadename,'')
+                                var countries = countries.replace(':','')
                                 var countries = countries.split(',');
                                 console.log('People List')
                                 console.log(countries)
