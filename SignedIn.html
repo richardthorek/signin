@@ -79,6 +79,7 @@
             var htmlurl = "https://prod-14.australiaeast.logic.azure.com:443/workflows/8e5092bdcc164560a9b67ceb238561ae/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=qGcp0vBb7ucHK54iZrx5k4_AcRLFgq2vw3OgMJySdwI"
             var tReq = new XMLHttpRequest();
             tReq.open("POST", htmlurl);
+            tReq.setRequestHeader('brigade',brigadename)
             tReq.onload = function(e) {
                 if (tReq.readyState === 4) {
                     if (tReq.status === 200) {
@@ -96,7 +97,7 @@
             tReq.onerror = function(e) {
                 console.error(tReq.statusText);
             };
-            tReq.send();
+            tReq.send(brigadename);
 
             function sortTable() {
                 var table, rows, switching, i, x, y, shouldSwitch;

@@ -94,6 +94,19 @@
     }
 </style>
 
+<script>
+    function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+                    var brigadename = getUrlVars()["brigade"];
+                    console.log(brigadename)
+</script>
+
 <body>
     <div class="container">
         <div class="jumbotron">
@@ -105,6 +118,7 @@
                 <form action='https://rfssms.azurewebsites.net/signin/{id}' method="POST" id="form1" autocomplete="off">
                     <div class="autocomplete">
                         <input id="myInput" type="text" placeholder="Name" name="name">
+                        <input id="brigadenameHidden" type="hidden" value="brigadename" name ="brigade">
                         <br>
                     </div>
                     <div class="buttonholder">
@@ -127,17 +141,6 @@
 
                 <script>
 
-function getUrlVars() {
-    var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value;
-    });
-    return vars;
-}
-
-                    var brigadename = getUrlVars()["brigade"];
-                    console.log(brigadename)
-
                     if (typeof brigadename == 'undefined'){
                         window.location.replace("Selector.html");
                     }
@@ -146,6 +149,7 @@ function getUrlVars() {
                     var signedinurl="SignedIn.html?brigade="+brigadename
                     console.log(signedinurl)
                     document.getElementById('signedinurl').setAttribute('href',signedinurl);
+                    document.getElementById('brigadenameHidden').setAttribute('value',brigadename);
                     
                     
                     function autocomplete(inp, arr) {
