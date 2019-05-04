@@ -100,7 +100,7 @@
             tReq.onerror = function(e) {
                 console.error(tReq.statusText);
             };
-            tReq.send(brigadename);
+            tReq.send(brigadename.replace('Testing','Duty'));
 
             function sortTable() {
                 var table, rows, switching, i, x, y, shouldSwitch;
