@@ -117,6 +117,8 @@ function showPosition(position) {
   return position.coords.latitude + "," + position.coords.longitude; 
 }
 
+console.log(latlon)
+
 </script>
 
 <body>
@@ -167,6 +169,7 @@ function showPosition(position) {
                     document.getElementById('brigadenameHidden').setAttribute('value',brigadename);
                     document.getElementById('submitSignOutAll').setAttribute('href',signedinurl);
                     document.getElementById('submitSignOut1').setAttribute('href',signedinurl);
+                    document.getElementById('locationHidden').setAttribute('value',latlon);
 
                     
                     
