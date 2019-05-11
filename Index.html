@@ -105,24 +105,7 @@
 
 
 var brigadename = getUrlVars()["brigade"];
-var latlon = "Placeholder"
-var x = document.getElementById("locationHidden");
-var latlon = getLocation()
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-   // x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
-  x.setAttribute('value',position.coords.latitude + "," + position.coords.longitude);
-}
-
-
-console.log(latlon)
 
 </script>
 
@@ -174,7 +157,7 @@ console.log(latlon)
                     document.getElementById('brigadenameHidden').setAttribute('value',brigadename);
                     document.getElementById('submitSignOutAll').setAttribute('href',signedinurl);
                     document.getElementById('submitSignOut1').setAttribute('href',signedinurl);
-                    document.getElementById('locationHidden').setAttribute('value',latlon);
+                    //document.getElementById('locationHidden').setAttribute('value',latlon);
 
                     
                     
