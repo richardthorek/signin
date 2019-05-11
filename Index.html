@@ -172,6 +172,8 @@
 
   // After 3 seconds, remove the show class from DIV
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+
+  myFunction()
 }
 
 
@@ -180,7 +182,7 @@
 <body>
     <div class="container">
         <div class="jumbotron">
-            <div id="snackbar">Some text some message..</div>
+           
             <h2 class="brigadelabel" id="brigadelabel" style="text-align:center">Loading....</h2>
             <h2 class="display-4" style="text-align: center">Sign In</h2>
 
@@ -206,6 +208,8 @@
                     </div>
                     <div>
                         <p></p>
+                        <button onclick="myFunction()">Show Snackbar</button>
+                        <div id="snackbar">Some text some message..</div>
                         <a id="signedinurl" href="SignedIn.html" class="btn btn-block btn-default"><span class="glyphicon glyphicon-user"></span>See Signed In</a>
                     </div>
 
@@ -356,8 +360,7 @@
         <!-- /container -->
 
         <footer class="footer">
-            <p>
-                
+            <p>  
                 <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
             </p>
         </footer>
