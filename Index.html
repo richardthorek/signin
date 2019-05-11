@@ -103,9 +103,10 @@
     return vars;
 }
 
-var x = document.getElementById("locationHidden");
+
 var brigadename = getUrlVars()["brigade"];
 var latlon = "Placeholder"
+var x = document.getElementById("locationHidden");
 var latlon = getLocation()
 
 function getLocation() {
@@ -116,7 +117,7 @@ function getLocation() {
   }
 }
 
-    function showPosition(position) {
+function showPosition(position) {
   x.setAttribute('value',position.coords.latitude + "," + position.coords.longitude);
 }
 
