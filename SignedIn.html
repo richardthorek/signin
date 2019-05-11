@@ -52,7 +52,7 @@
             <a id="signedinurl" href="Index.html" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-arrow-left"></span>Back to Sign In</a>
             <p class="ResultsTable" id="ResultsTable" style="text-align:center">Loading....</p>
             <form action='https://rfssms.azurewebsites.net/signin/{id}' method="POST" id="form2" autocomplete="off">
-                <input id="brigadenameHidden" type="hidden" value="brigadename" name ="brigade">
+                <input id="brigadenameHidden" type="hidden" value="brigadename" name="brigade">
                 <input id="lat" type="hidden" value="latlon" name="lat">
                 <input id="lon" type="hidden" value="latlon" name="lon">
                 <button type="submit" form="form2" value="SignOutAll" name="Event" class="btn btn-info btn-lg" style="text-align: center;" id="submitSignOutAll">Sign Out All</button>
@@ -61,45 +61,40 @@
         </div>
 
         <script>
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {}
+            }
 
-function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {}
-    }
+            function showPosition(position) {
+                // x.innerHTML = position.coords.latitude + "," + position.coords.longitude;
+                document.getElementById("lat").setAttribute('value', position.coords.latitude);
+                document.getElementById("lon").setAttribute('value', position.coords.longitude);
+            }
 
-    function showPosition(position) {
-        // x.innerHTML = position.coords.latitude + "," + position.coords.longitude;
-        document.getElementById("lat").setAttribute('value', position.coords.latitude);
-        document.getElementById("lon").setAttribute('value', position.coords.longitude);
-    }
+            getLocation()
 
-    getLocation()
-            
             function getUrlVars() {
-    var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value;
-    });
-    return vars;
-}
+                var vars = {};
+                var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+                    vars[key] = value;
+                });
+                return vars;
+            }
 
+            var brigadename = getUrlVars()["brigade"];
+            document.getElementById("brigadelabel").innerHTML = brigadename;
+            var signedinurl = "Index.html?brigade=" + brigadename
+            console.log(signedinurl)
+            document.getElementById('signedinurl').setAttribute('href', signedinurl);
+            document.getElementById('submitSignOutAll').setAttribute('href', signedinurl);
+            document.getElementById('brigadenameHidden').setAttribute('value', brigadename);
 
-                    var brigadename = getUrlVars()["brigade"];
-                    document.getElementById("brigadelabel").innerHTML = brigadename;
-                    var signedinurl="Index.html?brigade="+brigadename
-                    console.log(signedinurl)
-                    document.getElementById('signedinurl').setAttribute('href',signedinurl);
-                    document.getElementById('submitSignOutAll').setAttribute('href',signedinurl);
-                    document.getElementById('brigadenameHidden').setAttribute('value',brigadename);
-            
-            
-            
-            
             var htmlurl = "https://prod-14.australiaeast.logic.azure.com:443/workflows/8e5092bdcc164560a9b67ceb238561ae/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=qGcp0vBb7ucHK54iZrx5k4_AcRLFgq2vw3OgMJySdwI"
             var tReq = new XMLHttpRequest();
             tReq.open("POST", htmlurl);
-            tReq.setRequestHeader('brigade',brigadename)
+            tReq.setRequestHeader('brigade', brigadename)
             tReq.onload = function(e) {
                 if (tReq.readyState === 4) {
                     if (tReq.status === 200) {
@@ -117,7 +112,7 @@ function getLocation() {
             tReq.onerror = function(e) {
                 console.error(tReq.statusText);
             };
-            tReq.send(brigadename.replace('Testing','Duty'));
+            tReq.send(brigadename.replace('Testing', 'Duty'));
 
             function sortTable() {
                 var table, rows, switching, i, x, y, shouldSwitch;
