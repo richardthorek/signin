@@ -118,7 +118,7 @@
                     <div class="autocomplete">
                         <input id="myInput" type="text" placeholder="Name" name="name">
                         <input id="brigadenameHidden" type="hidden" value="brigadename" name ="brigade">
-                        <input id="locationHidden" type="hidden" value="latlon" name="location">
+                        <input id="locationHidden" type="hidden" value=latlon name="location">
                         <br>
                     </div>
                     <div class="buttonholder">
@@ -141,11 +141,14 @@
 
 
                 <script>
+                    
                     function getLocation() {
                       if (navigator.geolocation) {
                         navigator.geolocation.getCurrentPosition(showPosition);
+                        function showPosition(position) {
+                        var latlon = position.coords.latitude + "," + position.coords.longitude;
+                    }
                       } else {
-                        x.innerHTML = "Geolocation is not supported by this browser.";
                       }
                     }
                     
