@@ -102,20 +102,24 @@
     });
     return vars;
 }
+
+var x = document.getElementById("locationHidden");
 var brigadename = getUrlVars()["brigade"];
+var latlon = "Placeholder"
 var latlon = getLocation()
 
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
+   // x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
 
-function showPosition(position) {
-  return position.coords.latitude + "," + position.coords.longitude; 
+    function showPosition(position) {
+  x.setAttribute('value',position.coords.latitude + "," + position.coords.longitude;);
 }
+
 
 console.log(latlon)
 
