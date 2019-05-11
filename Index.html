@@ -102,8 +102,23 @@
     });
     return vars;
 }
+var brigadename = getUrlVars()["brigade"];
 
-                    var brigadename = getUrlVars()["brigade"];
+function getLocation() {
+                      if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                        function showPosition(position) {
+                        var latlon = position.coords.latitude + "," + position.coords.longitude;
+                    }
+                      } else {
+                      }
+                    }
+                    
+                    function showPosition(position) {
+                        var latlon = position.coords.latitude + "," + position.coords.longitude;
+                    }
+    var latlon = getLocation()[latlon]
+
 </script>
 
 <body>
@@ -118,7 +133,7 @@
                     <div class="autocomplete">
                         <input id="myInput" type="text" placeholder="Name" name="name">
                         <input id="brigadenameHidden" type="hidden" value="brigadename" name ="brigade">
-                        <input id="locationHidden" type="hidden" value=latlon name="location">
+                        <input id="locationHidden" type="hidden" value="latlon" name="location">
                         <br>
                     </div>
                     <div class="buttonholder">
@@ -142,19 +157,7 @@
 
                 <script>
                     
-                    function getLocation() {
-                      if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(showPosition);
-                        function showPosition(position) {
-                        var latlon = position.coords.latitude + "," + position.coords.longitude;
-                    }
-                      } else {
-                      }
-                    }
                     
-                    function showPosition(position) {
-                        var latlon = position.coords.latitude + "," + position.coords.longitude;
-                    }
 
                     if (typeof brigadename == 'undefined'){
                         window.location.replace("Selector.html");
@@ -166,6 +169,7 @@
                     document.getElementById('brigadenameHidden').setAttribute('value',brigadename);
                     document.getElementById('submitSignOutAll').setAttribute('href',signedinurl);
                     document.getElementById('submitSignOut1').setAttribute('href',signedinurl);
+
                     
                     
                     function autocomplete(inp, arr) {
