@@ -103,22 +103,13 @@
     return vars;
 }
 var brigadename = getUrlVars()["brigade"];
+var latlon = getLocation()
 
 function getLocation() {
-                      if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(showPosition);
-                        function showPosition(position) {
-                        var latlon = position.coords.latitude + "," + position.coords.longitude;
+                      var latlong = position.coords.latitude + "," + position.coords.longitude;
+                        return latlon
                     }
-                      } else {
-                      }
-                    }
-                    
-                    function showPosition(position) {
-                        var latlon = position.coords.latitude + "," + position.coords.longitude;
-                    }
-    var latlon = getLocation()[latlon]
-
+                     
 </script>
 
 <body>
