@@ -230,6 +230,7 @@
                         <!-- <button onclick="myFunction()">Show Snackbar</button>
                         <div id="snackbar">Some text some message..</div> -->
                         <a id="signedinurl" href="SignedIn.html" class="btn btn-block btn-default"><span class="glyphicon glyphicon-user"></span>See Signed In</a>
+                        <a id="attendancerequest" href="AttendanceBook.html" class="btn btn-block btn-default"><span class="glyphicon glyphicon-user"></span>Request Attendance Log</a>
                     </div>
 
                 </form>
@@ -245,6 +246,10 @@
                     document.getElementById('brigadenameHidden').setAttribute('value', brigadename);
                     document.getElementById('submitSignOutAll').setAttribute('href', signedinurl);
                     document.getElementById('submitSignOut1').setAttribute('href', signedinurl);
+                    
+                    var attendanceurl = "AttendanceBook.html?brigade=" + brigadename
+                    document.getElementById('attendancerequest').setAttribute('href', attendanceurl);
+
                     //document.getElementById('locationHidden').setAttribute('value',latlon);
 
                     function autocomplete(inp, arr) {
@@ -373,7 +378,6 @@
                     };
                     oReq.send(brigadename.replace('Testing', 'Duty'));
                 </script>
-
             </div>
         </div>
         <!-- /container -->
